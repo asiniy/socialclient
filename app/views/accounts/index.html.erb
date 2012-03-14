@@ -1,0 +1,31 @@
+<h1>Listing accounts</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Provider</th>
+    <th>Uid</th>
+    <th>Nickname</th>
+    <th>oauth_token</th>
+    <th>ouath_token_secret</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @accounts.each do |account| %>
+  <tr>
+    <td><%= account.name %></td>
+    <td><%= account.provider %></td>
+    <td><%= account.uid %></td>
+    <td><%= "@#{account.nickname}" if account.nickname %></td>
+    <td><%= account.oauth_token %></td>
+    <td><%= account.oauth_token_secret %></td>
+    <td><%= link_to 'Show', account %></td>
+    <td><%= link_to 'Destroy', account, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Twitter', '/auth/twitter' %>

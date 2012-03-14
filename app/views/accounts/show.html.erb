@@ -1,0 +1,49 @@
+<b>New tweet</b>
+<%= form_tag("/accounts/#{@account.id}/tweet") do %>
+  <%= text_area_tag :msg, "", :size => "45x8" %><br><br>
+  tweet in:
+  <%= text_field_tag :period, 0, :size => 4 %>
+  minutes
+  <%= submit_tag "New tweet" %>
+<% end %>
+
+<br><br>
+<h1>About user</h1>
+<br><br>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @account.name %>
+</p>
+
+<p>
+  <b>Provider:</b>
+  <%= @account.provider %>
+</p>
+
+<p>
+  <b>Id:</b>
+  <%= @account.uid %>
+</p>
+
+<p>
+  <b>Nickname:</b>
+  <%= @account.nickname %>
+</p>
+
+<p>
+  <b>Tokens:</b>
+  <%= @account.oauth_token %> | <%= @account.oauth_token_secret %>
+</p>
+
+<br><br>
+<h1>Feed</h1>
+<br><br>
+
+<%- @user.home_timeline.each do |tl| %>
+  <p><b><%= tl.user.name %></b> <%= tl.text %></p>
+<% end %>
+
+<%= link_to 'Back', accounts_path %>

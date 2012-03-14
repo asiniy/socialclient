@@ -1,4 +1,12 @@
 Socialclient::Application.routes.draw do
+  resources :accounts do
+    post 'tweet', :as => :member
+  end
+  
+  match "/auth/:provider/callback" => "accounts#create"
+  
+  root :to => "accounts#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -30,7 +30,10 @@ gem 'sqlite3'
 #   gem 'webrat'
 # end
 
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+
 # app functionality
 gem 'twitter'
 gem 'koala'
-gem 'delayed_job'
+gem 'delayed_job_active_record'
